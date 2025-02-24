@@ -447,7 +447,7 @@ public class UserServiceTest {
         userService.register(registerRequest);
         User registeredUser = new User();
         registeredUser.setEmail("test@example.com");
-        registeredUser.setPassword("password123"); // Store password in plain text
+        registeredUser.setPassword("password123");
         when(userRepository.findByEmail("test@example.com")).thenReturn(Optional.of(registeredUser));
         InvalidUsernameOrPasswordException exception = assertThrows(InvalidUsernameOrPasswordException.class, ()->userService.login(loginRequest));
         assertEquals("Invalid username or password", exception.getMessage());
