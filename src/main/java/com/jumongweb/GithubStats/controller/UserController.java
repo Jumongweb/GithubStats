@@ -43,10 +43,10 @@ public class UserController {
         try{
             LoginResponse loginResponse = userService.login(loginRequest);
             return new ResponseEntity<>(new ApiResponse(true, loginResponse), HttpStatus.OK);
-        } catch (UserDoesNotExistException | InvalidUsernameOrPasswordException e) {
+        } catch (UserDoesNotExistException | InvalidUsernameOrPasswordException | IllegalArgumentException e) {
             return new ResponseEntity<>(new ApiResponse(false, e.getMessage()), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return new ResponseEntity<>(new ApiResponse(false, e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 }
