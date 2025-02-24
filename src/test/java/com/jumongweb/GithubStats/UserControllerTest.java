@@ -7,11 +7,12 @@
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 //import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 //
 //import org.springframework.boot.test.mock.mockito.MockBean;
 //import org.springframework.http.MediaType;
-
+//
 //import org.springframework.test.web.servlet.MockMvc;
 //
 //import static org.mockito.ArgumentMatchers.any;
@@ -21,6 +22,7 @@
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 //
 //@WebMvcTest
+//@AutoConfigureMockMvc
 //public class UserControllerTest {
 //
 //    @Autowired
@@ -50,13 +52,16 @@
 //        when(userService.register(any(RegisterRequest.class))).thenReturn(registerResponse);
 //
 //        // Act & Assert
-//        mockMvc.perform(post("/api/v1/register")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(objectMapper.writeValueAsString(registerRequest)))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.success").value(true))
-//                .andExpect(jsonPath("$.message").value("User registered successfully"))
-//                .andExpect(jsonPath("$.data.message").value("Registration Successful"));
+////        mockMvc.perform(post("/api/v1/register")
+////                        .contentType(MediaType.APPLICATION_JSON)
+////                        .content(objectMapper.writeValueAsString(registerRequest)))
+////                .andExpect(status().isOk())
+////                .andExpect(jsonPath("$.success").value(true))
+////                .andExpect(jsonPath("$.message").value("User registered successfully"))
+////                .andExpect(jsonPath("$.data.message").value("Registration Successful"));
+//
+////        this.mockMvc.perform(post("/api/v1/register")
+//
 //
 //        verify(userService, times(1)).register(any(RegisterRequest.class));
 //    }
