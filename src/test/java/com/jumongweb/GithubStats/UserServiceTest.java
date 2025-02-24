@@ -20,7 +20,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
@@ -34,10 +33,6 @@ public class UserServiceTest {
 
     private RegisterRequest registerRequest;
     private LoginRequest loginRequest;
-
-    @Mock
-    private PasswordEncoder passwordEncoder;
-
 
 
     @BeforeEach
