@@ -8,6 +8,7 @@ import com.jumongweb.GithubStats.dtos.response.LoginResponse;
 import com.jumongweb.GithubStats.dtos.response.RegisterResponse;
 import com.jumongweb.GithubStats.exception.EmailAlreadyExistException;
 import com.jumongweb.GithubStats.exception.InvalidUsernameOrPasswordException;
+import com.jumongweb.GithubStats.exception.ShortPasswordException;
 import com.jumongweb.GithubStats.exception.UserDoesNotExistException;
 import com.jumongweb.GithubStats.service.UserService;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,7 @@ public class UserController {
         try {
             RegisterResponse registerResponse = userService.register(registerRequest);
             return new ResponseEntity<>(new ApiResponse(true, registerResponse), HttpStatus.CREATED);
-        } catch (EmailAlreadyExistException e) {
+        } catch (EmailAlreadyExistException | IllegalArgumentException | ShortPasswordException e) {
             return new ResponseEntity<>(new ApiResponse(false, e.getMessage()), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             throw new RuntimeException(e);
